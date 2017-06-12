@@ -1,0 +1,50 @@
+[
+  {
+    "name": "전체",
+    "order": 1,
+    "parameter": "ALL",
+    "default": true
+  },
+  {
+    "name": "예능",
+    "order": 2,
+    "parameter": "ENTER",
+    "default": false
+  },
+  {
+    "name": "영화/드라마",
+    "order": 3,
+    "parameter": "DRAMA",
+    "default": false
+  },
+  {
+    "name": "음악",
+    "order": 4,
+    "parameter": "ARTIS",
+    "default": false
+  },
+  {
+    "name": "게임/스포츠",
+    "order": 5,
+    "parameter": "SPORT",
+    "default": false
+  },
+  {
+    "name": "라이프",
+    "order": 6,
+    "parameter": "LIFE",
+    "default": false
+  },
+  {
+    "name": "교양",
+    "order": 7,
+    "parameter": "CULTU",
+    "default": false
+  },
+  {
+    "name": "애니메이션",
+    "order": 8,
+    "parameter": "CHILD",
+    "default": false
+  }
+]

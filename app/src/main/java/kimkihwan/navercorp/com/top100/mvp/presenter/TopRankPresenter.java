@@ -1,19 +1,66 @@
 package kimkihwan.navercorp.com.top100.mvp.presenter;
 
+import android.util.Log;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import java.util.List;
+
+import kimkihwan.navercorp.com.top100.api.VolleyApiClient;
+import kimkihwan.navercorp.com.top100.api.request.GetTopRankRequest;
+import kimkihwan.navercorp.com.top100.api.response.TopRankResponse;
+import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 import kimkihwan.navercorp.com.top100.mvp.view.Ui;
+import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
 
 /**
  * Created by NAVER on 2017-06-08.
  */
 
-public class TopRankPresenter extends Presenter<TopRankPresenter.TopRankUi>{
+public class TopRankPresenter
+        extends Presenter<TopRankPresenter.TopRankUi> {
 
-    public void fetch() {
+    private final static String TAG = TopRankPresenter.class.getSimpleName();
 
+    private Filter mApplied = Filter.ALL;
+
+    @Override
+    public void onUiReady(TopRankUi ui) {
+        super.onUiReady(ui);
+        fetch();
     }
 
+    /**
+     * 100순위 랭킹 영상정보를 가져온다.
+     *
+     * @param filter 리스트를 필터할 필터 객체
+     */
+    public void fetch(Filter filter) {
+        mApplied = filter;
+        getUi().showProgress();
+        VolleyApiClient.getInstance()
+                .add(new GetTopRankRequest(GetTopRankRequest.buildParams(mApplied.parameter),
+                        new Response.Listener<TopRankResponse>() {
+                            @Override
+                            public void onResponse(TopRankResponse response) {
+                                getUi().populate(response.mRankItems);
+                                getUi().hideProgress();
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, error.getMessage(), error);
+                        getUi().hideProgress();
+                    }
+                }));
+    }
+
+    public void fetch() {
+        fetch(mApplied);
+    }
 
     public interface TopRankUi extends Ui {
-        public void populate();
+        void populate(List<RankItem> items);
     }
 }

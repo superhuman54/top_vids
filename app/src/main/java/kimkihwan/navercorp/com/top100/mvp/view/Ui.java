@@ -5,4 +5,8 @@ package kimkihwan.navercorp.com.top100.mvp.view;
  */
 
 public interface Ui {
+
+    void showProgress();
+
+    void hideProgress();
 }

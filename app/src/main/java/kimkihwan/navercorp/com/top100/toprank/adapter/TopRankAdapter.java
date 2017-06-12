@@ -1,44 +1,41 @@
 package kimkihwan.navercorp.com.top100.toprank.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 
 /**
  * Created by NAVER on 2017-06-08.
  */
 
-public class TopRankAdapter extends RecyclerView.Adapter<TopRankAdapter.RankItemViewHolder> {
+public class TopRankAdapter extends RecyclerView.Adapter<RankItemViewHolder> {
 
+    private List<RankItem> mItems = new ArrayList<>();
 
     @Override
     public RankItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        return RankItemViewHolder.create(parent);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mItems.size();
     }
 
     @Override
     public void onBindViewHolder(RankItemViewHolder holder, int position) {
-
+        holder.bind(mItems.get(position));
     }
 
-    class RankItemViewHolder extends RecyclerView.ViewHolder{
+    public void swap(List<RankItem> items) {
+        mItems.clear();
+        mItems.addAll(items);
 
-        public ImageView thumbnail;
-        public TextView duration;
-        public TextView title;
-        public TextView channelName;
-        public TextView count;
-        public TextView likes;
-
-        public RankItemViewHolder(View itemView) {
-            super(itemView);
-        }
+        notifyDataSetChanged();
     }
+
 }

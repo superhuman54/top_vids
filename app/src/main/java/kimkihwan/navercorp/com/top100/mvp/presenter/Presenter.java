@@ -26,4 +26,8 @@ public abstract class Presenter<U extends Ui> {
     public U getUi() {
         return mUi;
     }
+
+    public void destroy() {
+
+    }
 }

@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/list_top_rank"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+        
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        android:text="Top Rank Vids"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_in" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:background="@drawable/top_rank_filter_selector"
+            android:layout_marginRight="@dimen/top_rank_filter_selector_right_margin"
+            android:layout_marginBottom="@dimen/top_rank_filter_selector_bottom_margin"
+            />
 
-</FrameLayout>
+        <kimkihwan.navercorp.com.top100.toprank.adapter.filter.FilterSelector
+            android:id="@+id/filter_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="@dimen/top_rank_filter_selector_right_margin"
+            android:layout_marginBottom="@dimen/top_rank_filter_selector_bottom_margin"/>
+
+    </FrameLayout>
+
+</layout>

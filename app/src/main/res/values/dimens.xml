@@ -4,4 +4,15 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+
+    <dimen name="top_rank_recycler_view_left_margin">16dp</dimen>
+    <dimen name="top_rank_recycler_view_top_margin">16dp</dimen>
+    <dimen name="top_rank_recycler_view_right_margin">16dp</dimen>
+    <dimen name="top_rank_recycler_view_bottom_margin">16dp</dimen>
+    
+    <dimen name="top_rank_filter_selector_diameter">60dp</dimen>
+    <dimen name="top_rank_filter_selector_right_margin">10dp</dimen>
+    <dimen name="top_rank_filter_selector_bottom_margin">10dp</dimen>
+
+
 </resources>
