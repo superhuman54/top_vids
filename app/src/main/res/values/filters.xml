@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- filter names-->
+    <string name="filter_name_all">전체</string>
+    <string name="filter_name_entertainment">예능</string>
+    <string name="filter_name_drama">영화/드라마</string>
+    <string name="filter_name_music">음악</string>
+    <string name="filter_name_sports">게임/스포츠</string>
+    <string name="filter_name_life">라이프</string>
+    <string name="filter_name_culture">교양</string>
+    <string name="filter_name_animation">애니메이션</string>
+
+    <!-- filter parameters -->
+    <string name="filter_param_all">ALL</string>
+    <string name="filter_param_entertainment">ENTER</string>
+    <string name="filter_param_drama">DRAMA</string>
+    <string name="filter_param_music">ARTIS</string>
+    <string name="filter_param_sports">SPORT</string>
+    <string name="filter_param_life">LIFE</string>
+    <string name="filter_param_culture">CULTU</string>
+    <string name="filter_param_animation">CHILD</string>
+</resources>

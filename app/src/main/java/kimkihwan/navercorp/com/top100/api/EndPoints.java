@@ -9,7 +9,7 @@ public class EndPoints {
     public final static String BASE_URL = "http://stage.api.tvcast.naver.com";
 
     public static class TopRank {
-        public final static String API = "/api/open/nmp/home/top100?";
+        public final static String API = "/api/open/nmp/home/top100";
     }
 
 }

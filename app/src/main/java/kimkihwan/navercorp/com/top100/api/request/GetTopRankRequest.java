@@ -15,7 +15,7 @@ import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 public class GetTopRankRequest extends JacksonRequest<TopRankResponse>{
 
     public final static String URL = EndPoints.BASE_URL + EndPoints.TopRank.API;
-    public final static String PARAMS_MAP = "json={\"category\":\"%s\",\"count\":100}";
+    public final static String PARAMS_MAP = "?json={\"category\":\"%s\",\"count\":100}";
 
     public GetTopRankRequest(String params,
                              Response.Listener<TopRankResponse> listener,

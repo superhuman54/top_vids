@@ -3,10 +3,13 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
         <RadioGroup
-            android:id="@+id/filter_parent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:id="@+id/radiogroup_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:orientation="vertical"
+            android:layout_marginRight="@dimen/top_rank_filter_selector_right_margin"
+            android:layout_marginBottom="@dimen/top_rank_filter_selector_bottom_margin">
 
 
         </RadioGroup>

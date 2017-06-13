@@ -1,27 +1,38 @@
 package kimkihwan.navercorp.com.top100.toprank.adapter.filter;
 
 /**
- * Created by jamie on 2017. 6. 12..
+ * Created by jamie on 2017. 6. 13..
  */
 
-public enum Filter {
-
-    ALL("전체", "ALL", true),
-    ENTERTAINMENT("예능", "ENTER", false),
-    DRAMA("영화/드라마", "DRAMA", false),
-    MUSIC("음악", "ARTIS", false),
-    SPORTS("게임/스포츠",  "SPORT", false),
-    LIFE("라이프", "LIFE", false),
-    CULTURE("교양", "CULTU", false),
-    ANIMATION("애니메이션", "CHILD", false);
+public class Filter implements Comparable<Filter> {
 
     public String name;
+    public int order;
     public String parameter;
     public boolean isDefault;
 
-    Filter(String name, String parameter, boolean isDefault) {
+    public Filter setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public Filter setOrder(int order) {
+        this.order = order;
+        return this;
+    }
+
+    public Filter setParameter(String parameter) {
         this.parameter = parameter;
-        this.isDefault = isDefault;
+        return this;
+    }
+
+    public Filter setDefault(boolean aDefault) {
+        isDefault = aDefault;
+        return this;
+    }
+
+    @Override
+    public int compareTo(Filter that) {
+        return this.order - that.order;
     }
 }

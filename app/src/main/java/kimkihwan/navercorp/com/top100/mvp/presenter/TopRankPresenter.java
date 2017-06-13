@@ -13,6 +13,7 @@ import kimkihwan.navercorp.com.top100.api.response.TopRankResponse;
 import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 import kimkihwan.navercorp.com.top100.mvp.view.Ui;
 import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
+import kimkihwan.navercorp.com.top100.toprank.adapter.filter.FilterLoader;
 
 /**
  * Created by NAVER on 2017-06-08.
@@ -23,7 +24,7 @@ public class TopRankPresenter
 
     private final static String TAG = TopRankPresenter.class.getSimpleName();
 
-    private Filter mApplied = Filter.ALL;
+    private Filter mApplied = FilterLoader.DEFAULT;
 
     @Override
     public void onUiReady(TopRankUi ui) {

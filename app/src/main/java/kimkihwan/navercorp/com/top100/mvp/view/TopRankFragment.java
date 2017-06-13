@@ -4,19 +4,20 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 
 import java.util.List;
 
+import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
 import kimkihwan.navercorp.com.top100.toprank.adapter.filter.FilterSelector;
 import kimkihwan.navercorp.com.top100.databinding.FragmentToprankBinding;
 import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 import kimkihwan.navercorp.com.top100.mvp.presenter.TopRankPresenter;
 import kimkihwan.navercorp.com.top100.toprank.adapter.TopRankAdapter;
-import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
 
 /**
  * Created by NAVER on 2017-06-08.
@@ -24,12 +25,17 @@ import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
 
 public class TopRankFragment
         extends BaseFragment<TopRankPresenter, TopRankPresenter.TopRankUi>
-        implements TopRankPresenter.TopRankUi, SwipeRefreshLayout.OnRefreshListener, FilterSelector.OnFilterSelectedListener {
+        implements TopRankPresenter.TopRankUi,
+        SwipeRefreshLayout.OnRefreshListener,
+        FilterSelector.OnFilterSelectedListener,
+        View.OnClickListener{
 
     private final static String TAG = TopRankFragment.class.getSimpleName();
 
     private FragmentToprankBinding mBinding;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    private FilterSelector mFilterLayout;
+    private ImageButton mFilterButton;
 
     private TopRankAdapter mAdapter;
 
@@ -54,7 +60,11 @@ public class TopRankFragment
         mBinding = FragmentToprankBinding.inflate(inflater, container, false);
         mSwipeRefreshLayout = mBinding.swipeRefreshLayout;
         mSwipeRefreshLayout.setOnRefreshListener(this);
-        mBinding.filterSelector.setOnFilterSelectedListener(this);
+        mFilterLayout = mBinding.filterSelector;
+        mFilterLayout.setOnFilterSelectedListener(this);
+
+        mFilterButton = mBinding.imagebuttonFilter;
+        mFilterButton.setOnClickListener(this);
 
         mAdapter = new TopRankAdapter();
         mBinding.recyclerView.setAdapter(mAdapter);
@@ -64,7 +74,6 @@ public class TopRankFragment
 
     @Override
     public void populate(List<RankItem> items) {
-        Log.d(TAG, "items size: " + items.size());
         mAdapter.swap(items);
     }
 
@@ -89,5 +98,21 @@ public class TopRankFragment
     @Override
     public void onSelected(Filter filter) {
         getPresenter().fetch(filter);
+        toggle();
+    }
+
+    @Override
+    public void onClick(View v) {
+        toggle();
+    }
+
+    private void toggle() {
+        if (mFilterButton.getVisibility() == View.VISIBLE) {
+            mFilterLayout.setVisibility(View.VISIBLE);
+            mFilterButton.setVisibility(View.INVISIBLE);
+        } else {
+            mFilterLayout.setVisibility(View.INVISIBLE);
+            mFilterButton.setVisibility(View.VISIBLE);
+        }
     }
 }

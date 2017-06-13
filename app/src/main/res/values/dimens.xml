@@ -14,5 +14,9 @@
     <dimen name="top_rank_filter_selector_right_margin">10dp</dimen>
     <dimen name="top_rank_filter_selector_bottom_margin">10dp</dimen>
 
+    <dimen name="top_rank_filter_item_width">125dp</dimen>
+    <dimen name="top_rank_filter_item_height">38.5dp</dimen>
+    <dimen name="top_rank_filter_item_padding_left">20dp</dimen>
+
 
 </resources>
