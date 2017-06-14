@@ -1,5 +1,7 @@
 package kimkihwan.navercorp.com.top100.api.request;
 
+import android.util.Log;
+
 import com.android.volley.Response;
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -13,6 +15,8 @@ import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
  */
 
 public class GetTopRankRequest extends JacksonRequest<TopRankResponse>{
+
+    private final static String TAG = GetTopRankRequest.class.getSimpleName();
 
     public final static String URL = EndPoints.BASE_URL + EndPoints.TopRank.API;
     public final static String PARAMS_MAP = "?json={\"category\":\"%s\",\"count\":100}";
@@ -36,6 +40,8 @@ public class GetTopRankRequest extends JacksonRequest<TopRankResponse>{
     @Override
     protected TopRankResponse parse(JsonNode root) {
         TopRankResponse response = new TopRankResponse();
+
+        long started = System.currentTimeMillis();
 
         JsonNode topPlayList = root.path("body").path("top100Playlist");
 
@@ -68,6 +74,8 @@ public class GetTopRankRequest extends JacksonRequest<TopRankResponse>{
                     .setChannelEmblemUrl(clip.path("channelEmblem").asText());
             response.mRankItems.add(item);
         }
+
+        Log.d(TAG, "elapsed time: " + (System.currentTimeMillis() - started));
 
         return response;
     }

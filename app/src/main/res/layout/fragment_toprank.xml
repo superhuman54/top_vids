@@ -39,8 +39,10 @@
             android:id="@+id/filter_selector"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="right|bottom"
             android:visibility="gone"
-            />
+            android:layout_marginRight="@dimen/top_rank_filter_selector_right_margin"
+            android:layout_marginBottom="@dimen/top_rank_filter_selector_bottom_margin"/>
 
     </FrameLayout>
 

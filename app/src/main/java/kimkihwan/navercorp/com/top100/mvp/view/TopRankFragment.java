@@ -4,20 +4,20 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import java.util.List;
 
-import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
-import kimkihwan.navercorp.com.top100.toprank.adapter.filter.FilterSelector;
 import kimkihwan.navercorp.com.top100.databinding.FragmentToprankBinding;
 import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 import kimkihwan.navercorp.com.top100.mvp.presenter.TopRankPresenter;
 import kimkihwan.navercorp.com.top100.toprank.adapter.TopRankAdapter;
+import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
+import kimkihwan.navercorp.com.top100.toprank.adapter.filter.FilterSelector;
 
 /**
  * Created by NAVER on 2017-06-08.
@@ -37,6 +37,7 @@ public class TopRankFragment
     private FilterSelector mFilterLayout;
     private ImageButton mFilterButton;
 
+    private RecyclerView mRankList;
     private TopRankAdapter mAdapter;
 
     public static TopRankFragment getInstance() {
@@ -62,12 +63,15 @@ public class TopRankFragment
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mFilterLayout = mBinding.filterSelector;
         mFilterLayout.setOnFilterSelectedListener(this);
+        mFilterLayout.setOnClickListener(this);
 
         mFilterButton = mBinding.imagebuttonFilter;
         mFilterButton.setOnClickListener(this);
 
         mAdapter = new TopRankAdapter();
-        mBinding.recyclerView.setAdapter(mAdapter);
+        mRankList = mBinding.recyclerView;
+        mRankList.setAdapter(mAdapter);
+
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return mBinding.getRoot();
     }
@@ -99,6 +103,7 @@ public class TopRankFragment
     public void onSelected(Filter filter) {
         getPresenter().fetch(filter);
         toggle();
+        mRankList.scrollToPosition(0);
     }
 
     @Override

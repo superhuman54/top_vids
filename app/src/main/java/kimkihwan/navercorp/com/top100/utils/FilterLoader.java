@@ -1,4 +1,4 @@
-package kimkihwan.navercorp.com.top100.toprank.adapter.filter;
+package kimkihwan.navercorp.com.top100.utils;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import kimkihwan.navercorp.com.top100.R;
+import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
 
 /**
  * Created by jamie on 2017. 6. 13..

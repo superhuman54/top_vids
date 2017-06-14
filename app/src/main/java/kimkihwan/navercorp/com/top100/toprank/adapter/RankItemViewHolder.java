@@ -18,21 +18,42 @@ import kimkihwan.navercorp.com.top100.utils.ImageFetcher;
 public class RankItemViewHolder extends BaseViewHolder<ItemRankBinding, RankItem>{
 
     private ImageView mThumbnail;
-    private TextView mTitle;
+    private TextView mRunningTime;
+
     private TextView mPlace;
+    private TextView mHistory;
+
+    private TextView mTitle;
+
+    private TextView mChannelTitle;
+    private TextView mHits;
+    private TextView mLikes;
 
     public RankItemViewHolder(ItemRankBinding binding) {
         super(binding);
         mThumbnail = binding.thumbnail;
         mTitle = binding.title;
         mPlace = binding.place;
+        mRunningTime = binding.runningTime;
+        mChannelTitle = binding.channelTitle;
+        mHits = binding.hits;
+        mLikes = binding.likes;
+        mHistory = binding.history;
     }
 
     @Override
     public void bind(RankItem item) {
         mTitle.setText(item.getClipTitle());
         mPlace.setText(item.getRankStatus());
-        ImageFetcher.display(mThumbnail, item.getThumbnailUrl());
+        mRunningTime.setText(item.getPlayTime());
+        mChannelTitle.setText(item.getChannelTitle());
+        mHits.setText(item.getPlayCount());
+        mLikes.setText(item.getLikeItCount());
+        mPlace.setText(String.valueOf(item.getPlace()));
+        mHistory.setText(item.getRankStatus());
+        ImageFetcher.display(mThumbnail,
+                ImageFetcher.ImageDefinition.FULL,
+                item.getThumbnailUrl());
     }
 
     public static RankItemViewHolder create(ViewGroup parent) {

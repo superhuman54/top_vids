@@ -13,7 +13,7 @@ import kimkihwan.navercorp.com.top100.api.response.TopRankResponse;
 import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 import kimkihwan.navercorp.com.top100.mvp.view.Ui;
 import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
-import kimkihwan.navercorp.com.top100.toprank.adapter.filter.FilterLoader;
+import kimkihwan.navercorp.com.top100.utils.FilterLoader;
 
 /**
  * Created by NAVER on 2017-06-08.
@@ -38,8 +38,8 @@ public class TopRankPresenter
      * @param filter 리스트를 필터할 필터 객체
      */
     public void fetch(Filter filter) {
-        mApplied = filter;
         getUi().showProgress();
+        mApplied = filter;
         VolleyApiClient.getInstance()
                 .add(new GetTopRankRequest(GetTopRankRequest.buildParams(mApplied.parameter),
                         new Response.Listener<TopRankResponse>() {

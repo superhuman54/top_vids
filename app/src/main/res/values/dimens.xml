@@ -5,9 +5,19 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
 
-    <dimen name="top_rank_recycler_view_left_margin">16dp</dimen>
-    <dimen name="top_rank_recycler_view_top_margin">16dp</dimen>
-    <dimen name="top_rank_recycler_view_right_margin">16dp</dimen>
+    <dimen name="top_rank_recycler_view_item_height">105dp</dimen>
+    <dimen name="top_rank_recycler_view_item_runningtime_height">19dp</dimen>
+    <dimen name="top_rank_recycler_view_item_runningtime_text_size">10dp</dimen>
+    <dimen name="top_rank_recycler_view_item_column_margin">8dp</dimen>
+
+    <dimen name="top_rank_recycler_view_item_left_margin">10dp</dimen>
+    <dimen name="top_rank_recycler_view_item_top_margin">10dp</dimen>
+    <dimen name="top_rank_recycler_view_item_right_margin">10dp</dimen>
+    <dimen name="top_rank_recycler_view_item_bottom_margin">10dp</dimen>
+
+    <dimen name="top_rank_recycler_view_left_margin">14dp</dimen>
+    <dimen name="top_rank_recycler_view_top_margin">5dp</dimen>
+    <dimen name="top_rank_recycler_view_right_margin">14dp</dimen>
     <dimen name="top_rank_recycler_view_bottom_margin">16dp</dimen>
     
     <dimen name="top_rank_filter_selector_diameter">60dp</dimen>

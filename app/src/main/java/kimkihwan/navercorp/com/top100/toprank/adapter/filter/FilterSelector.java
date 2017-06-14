@@ -10,6 +10,7 @@ import android.widget.RadioGroup;
 import java.util.Set;
 
 import kimkihwan.navercorp.com.top100.R;
+import kimkihwan.navercorp.com.top100.utils.FilterLoader;
 
 /**
  * Created by jamie on 2017. 6. 12..

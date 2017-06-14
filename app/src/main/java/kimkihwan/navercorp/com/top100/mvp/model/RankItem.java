@@ -22,6 +22,7 @@ public class RankItem {
     private String mVideoId;
     private String mChannelId;
     private String mChannelEmblemUrl;
+    private int mPlace;
 
     public String getThumbnailUrl() {
         return mThumbnailUrl;
@@ -164,6 +165,15 @@ public class RankItem {
 
     public RankItem setChannelEmblemUrl(String mChannelEmblemUrl) {
         this.mChannelEmblemUrl = mChannelEmblemUrl;
+        return this;
+    }
+
+    public int getPlace() {
+        return mPlace;
+    }
+
+    public RankItem setPlace(int mPlace) {
+        this.mPlace = mPlace;
         return this;
     }
 

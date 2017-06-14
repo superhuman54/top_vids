@@ -1,31 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/top_rank_recycler_view_item_right_margin"
+        android:layout_marginLeft="@dimen/top_rank_recycler_view_item_left_margin"
+        android:layout_marginRight="@dimen/top_rank_recycler_view_item_right_margin"
+        android:layout_marginTop="@dimen/top_rank_recycler_view_top_margin"
         android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/thumbnail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="139.5dp"
+            >
 
-            <TextView
-                android:id="@+id/place"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"/>
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"/>
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/running_time"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="@dimen/top_rank_recycler_view_item_runningtime_height"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:background="#33000000"
+                android:gravity="center"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:textColor="#CCFFFFFF"
+                android:textSize="@dimen/top_rank_recycler_view_item_runningtime_text_size" />
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/place_wrapper"
+                android:layout_width="33dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5.63dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:id="@+id/history"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/top_rank_item_title"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/channel_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/top_rank_recycler_view_item_column_margin" />
+
+                    <TextView
+                        android:id="@+id/hits"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/top_rank_recycler_view_item_column_margin" />
+
+                    <TextView
+                        android:id="@+id/likes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </layout>

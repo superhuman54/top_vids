@@ -6,4 +6,6 @@
 
     <color name="filter_selector_radio_button_font_checked">#ff01dd83</color>
     <color name="filter_selector_radio_button_font_unchecked">#fff</color>
+
+    <color name="top_rank_item_title">#000</color>
 </resources>

@@ -28,7 +28,7 @@ public class TopRankAdapter extends RecyclerView.Adapter<RankItemViewHolder> {
 
     @Override
     public void onBindViewHolder(RankItemViewHolder holder, int position) {
-        holder.bind(mItems.get(position));
+        holder.bind(mItems.get(position).setPlace(++position));
     }
 
     public void swap(List<RankItem> items) {
