@@ -47,8 +47,8 @@ public class RankItemViewHolder extends BaseViewHolder<ItemRankBinding, RankItem
         mPlace.setText(item.getRankStatus());
         mRunningTime.setText(item.getPlayTime());
         mChannelTitle.setText(item.getChannelTitle());
-        mHits.setText(item.getPlayCount());
-        mLikes.setText(item.getLikeItCount());
+        mHits.setText(item.getPlayCount() + "");
+        mLikes.setText(item.getLikeItCount() + "");
         mPlace.setText(String.valueOf(item.getPlace()));
         mHistory.setText(item.getRankStatus());
         ImageFetcher.display(mThumbnail,

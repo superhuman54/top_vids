@@ -2,9 +2,6 @@ package kimkihwan.navercorp.com.top100.mvp.presenter;
 
 import android.content.Context;
 import android.support.v4.content.Loader;
-import android.util.Log;
-
-import kimkihwan.navercorp.com.top100.mvp.presenter.Presenter;
 
 /**
  * Created by jamie on 2017. 6. 9..

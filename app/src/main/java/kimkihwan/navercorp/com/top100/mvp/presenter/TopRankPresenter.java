@@ -10,9 +10,9 @@ import java.util.List;
 import kimkihwan.navercorp.com.top100.api.VolleyApiClient;
 import kimkihwan.navercorp.com.top100.api.request.GetTopRankRequest;
 import kimkihwan.navercorp.com.top100.api.response.TopRankResponse;
+import kimkihwan.navercorp.com.top100.main.toprank.filter.Filter;
 import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 import kimkihwan.navercorp.com.top100.mvp.view.Ui;
-import kimkihwan.navercorp.com.top100.main.toprank.filter.Filter;
 import kimkihwan.navercorp.com.top100.utils.FilterLoader;
 
 /**
@@ -45,7 +45,7 @@ public class TopRankPresenter
                         new Response.Listener<TopRankResponse>() {
                             @Override
                             public void onResponse(TopRankResponse response) {
-                                getUi().populate(response.mRankItems);
+                                getUi().populate(response.getClips());
                                 getUi().hideProgress();
                             }
                         }, new Response.ErrorListener() {

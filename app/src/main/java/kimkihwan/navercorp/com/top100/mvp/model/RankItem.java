@@ -1,186 +1,180 @@
 package kimkihwan.navercorp.com.top100.mvp.model;
 
 /**
- * Created by jamie on 2017. 6. 9..
+ * Created by jamie on 2017. 6. 15..
  */
 
 public class RankItem {
 
-    private String mThumbnailUrl;
-    private String mChannelUrl;
-    private String mPlayTime;
-    private String mPlayCount;
-    private String mLikeItCount;
-    private String mClipTitle;
-    private String mRecommendPoint;
-    private RankStatus mRankStatus;
-    private String mRankRange;
-    private String mIntentUrl;
-    private String mChannelTitle;
-    private long mClipNo;
-    private boolean mIsMultiTrack;
-    private String mVideoId;
-    private String mChannelId;
-    private String mChannelEmblemUrl;
-    private int mPlace;
+    public String channelId;
+    public String clipTitle;
+    public long playCount;
+    public long recommendPoint;
+    public long likeItCount;
+    public String channelEmblem;
+    public String channelUrl;
+    public String playTime;
+    public String thumbnailUrl;
+    public long clipNo;
+    public String videoId;
+    public String channelTitle;
+    public boolean multiTrack;
+    public String rankStatus;
+    public String rankRange;
+    public String intentUrl;
 
-    public String getThumbnailUrl() {
-        return mThumbnailUrl;
-    }
+    public int place;
 
-    public RankItem setThumbnailUrl(String mThumbnailUrl) {
-        this.mThumbnailUrl = mThumbnailUrl;
+    public RankItem setChannelId(String channelId) {
+        this.channelId = channelId;
         return this;
     }
 
-    public String getChannelUrl() {
-        return mChannelUrl;
-    }
-
-    public RankItem setChannelUrl(String mChannelUrl) {
-        this.mChannelUrl = mChannelUrl;
+    public RankItem setClipTitle(String clipTitle) {
+        this.clipTitle = clipTitle;
         return this;
     }
 
-    public String getPlayTime() {
-        return mPlayTime;
-    }
-
-    public RankItem setPlayTime(String mPlayTime) {
-        this.mPlayTime = mPlayTime;
+    public RankItem setPlayCount(long playCount) {
+        this.playCount = playCount;
         return this;
     }
 
-    public String getPlayCount() {
-        return mPlayCount;
-    }
-
-    public RankItem setPlayCount(String mPlayCount) {
-        this.mPlayCount = mPlayCount;
+    public RankItem setRecommendPoint(long recommendPoint) {
+        this.recommendPoint = recommendPoint;
         return this;
     }
 
-    public String getLikeItCount() {
-        return mLikeItCount;
-    }
-
-    public RankItem setLikeItCount(String mLikeItCount) {
-        this.mLikeItCount = mLikeItCount;
+    public RankItem setLikeItCount(long likeItCount) {
+        this.likeItCount = likeItCount;
         return this;
     }
 
-    public String getClipTitle() {
-        return mClipTitle;
-    }
-
-    public RankItem setClipTitle(String mClipTitle) {
-        this.mClipTitle = mClipTitle;
+    public RankItem setChannelEmblem(String channelEmblem) {
+        this.channelEmblem = channelEmblem;
         return this;
     }
 
-    public String getRecommendPoint() {
-        return mRecommendPoint;
-    }
-
-    public RankItem setRecommendPoint(String mRecommendPoint) {
-        this.mRecommendPoint = mRecommendPoint;
+    public RankItem setChannelUrl(String channelUrl) {
+        this.channelUrl = channelUrl;
         return this;
     }
 
-    public String getRankStatus() {
-        return mRankStatus.name();
+    public RankItem setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+        return this;
+    }
+
+    public RankItem setClipNo(long clipNo) {
+        this.clipNo = clipNo;
+        return this;
+    }
+
+    public RankItem setVideoId(String videoId) {
+        this.videoId = videoId;
+        return this;
+    }
+
+    public RankItem setChannelTitle(String channelTitle) {
+        this.channelTitle = channelTitle;
+        return this;
+    }
+
+    public RankItem setMultiTrack(boolean multiTrack) {
+        this.multiTrack = multiTrack;
+        return this;
     }
 
     public RankItem setRankStatus(String rankStatus) {
-        this.mRankStatus = RankStatus.valueOf(rankStatus.toUpperCase());
+        this.rankStatus = rankStatus;
         return this;
     }
 
-    public String getRankRange() {
-        return mRankRange;
-    }
-
-    public RankItem setRankRange(String mRankRange) {
-        this.mRankRange = mRankRange;
+    public RankItem setRankRange(String rankRange) {
+        this.rankRange = rankRange;
         return this;
     }
 
-    public String getIntentUrl() {
-        return mIntentUrl;
-    }
-
-    public RankItem setIntentUrl(String mIntentUrl) {
-        this.mIntentUrl = mIntentUrl;
+    public RankItem setIntentUrl(String intentUrl) {
+        this.intentUrl = intentUrl;
         return this;
     }
 
-    public String getChannelTitle() {
-        return mChannelTitle;
-    }
-
-    public RankItem setChannelTitle(String mChannelTitle) {
-        this.mChannelTitle = mChannelTitle;
-        return this;
-    }
-
-    public long getClipNo() {
-        return mClipNo;
-    }
-
-    public RankItem setClipNo(long mClipNo) {
-        this.mClipNo = mClipNo;
-        return this;
-    }
-
-    public boolean isMultiTrack() {
-        return mIsMultiTrack;
-    }
-
-    public RankItem setIsMultiTrack(boolean mIsMultiTrack) {
-        this.mIsMultiTrack = mIsMultiTrack;
-        return this;
-    }
-
-    public String getVideoId() {
-        return mVideoId;
-    }
-
-    public RankItem setVideoId(String mVideoId) {
-        this.mVideoId = mVideoId;
+    public RankItem setPlace(int place) {
+        this.place = place;
         return this;
     }
 
     public String getChannelId() {
-        return mChannelId;
+        return channelId;
     }
 
-    public RankItem setChannelId(String mChannelId) {
-        this.mChannelId = mChannelId;
-        return this;
+    public String getClipTitle() {
+        return clipTitle;
     }
 
-    public String getChannelEmblemUrl() {
-        return mChannelEmblemUrl;
+    public long getPlayCount() {
+        return playCount;
     }
 
-    public RankItem setChannelEmblemUrl(String mChannelEmblemUrl) {
-        this.mChannelEmblemUrl = mChannelEmblemUrl;
-        return this;
+    public long getRecommendPoint() {
+        return recommendPoint;
+    }
+
+    public long getLikeItCount() {
+        return likeItCount;
+    }
+
+    public String getChannelEmblem() {
+        return channelEmblem;
+    }
+
+    public String getChannelUrl() {
+        return channelUrl;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public long getClipNo() {
+        return clipNo;
+    }
+
+    public String getVideoId() {
+        return videoId;
+    }
+
+    public String getChannelTitle() {
+        return channelTitle;
+    }
+
+    public boolean isMultiTrack() {
+        return multiTrack;
+    }
+
+    public String getRankStatus() {
+        return rankStatus;
+    }
+
+    public String getRankRange() {
+        return rankRange;
+    }
+
+    public String getIntentUrl() {
+        return intentUrl;
     }
 
     public int getPlace() {
-        return mPlace;
+        return place;
     }
 
-    public RankItem setPlace(int mPlace) {
-        this.mPlace = mPlace;
+    public String getPlayTime() {
+        return playTime;
+    }
+
+    public RankItem setPlayTime(String playTime) {
+        this.playTime = playTime;
         return this;
-    }
-
-    enum RankStatus {
-        UP,
-        DOWN,
-        NEW,
-        KEEP
     }
 }

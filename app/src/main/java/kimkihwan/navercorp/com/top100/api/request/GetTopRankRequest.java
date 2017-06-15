@@ -3,12 +3,12 @@ package kimkihwan.navercorp.com.top100.api.request;
 import android.util.Log;
 
 import com.android.volley.Response;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import kimkihwan.navercorp.com.top100.api.EndPoints;
 import kimkihwan.navercorp.com.top100.api.response.TopRankResponse;
 import kimkihwan.navercorp.com.top100.api.util.ResponseHeaderExtractor;
-import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 
 /**
  * Created by jamie on 2017. 6. 11..
@@ -39,40 +39,16 @@ public class GetTopRankRequest extends JacksonRequest<TopRankResponse>{
      */
     @Override
     protected TopRankResponse parse(JsonNode root) {
-        TopRankResponse response = new TopRankResponse();
+        TopRankResponse response = null;
 
         long started = System.currentTimeMillis();
 
         JsonNode topPlayList = root.path("body").path("top100Playlist");
 
-        response.mPlayListNo = topPlayList.path("playlistNo").asText();
-        long dateTimeInMillSec = topPlayList.path("lastModifyDatetime").asLong();
-
-        JsonNode criteriaDate = topPlayList.path("criteriaDate");
-//        long startCriteriaDate = criteriaDate.get(0).asLong();
-//        long endCriteriaDate = criteriaDate.get(1).asLong();
-
-        JsonNode clips = topPlayList.path("clips");
-
-        for (JsonNode clip : clips) {
-            RankItem item = new RankItem();
-            item.setThumbnailUrl(clip.path("thumbnailUrl").asText())
-                    .setChannelUrl(clip.path("channelUrl").asText())
-                    .setPlayTime(clip.path("playTime").asText())
-                    .setPlayCount(String.format("%,d", clip.path("playCount").asInt()))
-                    .setLikeItCount(String.format("%,d", clip.path("likeItCount").asInt()))
-                    .setClipTitle(clip.path("clipTitle").asText())
-                    .setRecommendPoint(String.format("%,d", clip.path("recommendPoint").asInt()))
-                    .setRankStatus(clip.path("rankStatus").asText())
-                    .setRankRange(clip.path("rankRange").asText())
-                    .setIntentUrl(clip.path("intentUrl").asText())
-                    .setChannelTitle(clip.path("channelTitle").asText())
-                    .setClipNo(clip.path("clipNo").asInt())
-                    .setIsMultiTrack(clip.path("multiTrack").asBoolean())
-                    .setVideoId(clip.path("videoId").asText())
-                    .setChannelId(clip.path("channelId").asText())
-                    .setChannelEmblemUrl(clip.path("channelEmblem").asText());
-            response.mRankItems.add(item);
+        try {
+            response = sMapper.treeToValue(topPlayList, TopRankResponse.class);
+        } catch (JsonProcessingException e) {
+            Log.e(TAG, e.getMessage(), e);
         }
 
         Log.d(TAG, "elapsed time: " + (System.currentTimeMillis() - started));

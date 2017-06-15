@@ -24,7 +24,7 @@ public abstract class JacksonRequest<T> extends Request<T> {
 
     private final static String TAG = JacksonRequest.class.getSimpleName();
 
-    private static final ObjectMapper sMapper = new ObjectMapper();
+    public static final ObjectMapper sMapper = new ObjectMapper();
     private HeaderExtractor mHeaderExtractor;
 
     private final Response.Listener<T> mListener;

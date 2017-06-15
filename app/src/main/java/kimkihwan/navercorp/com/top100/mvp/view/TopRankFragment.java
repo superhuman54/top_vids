@@ -13,12 +13,11 @@ import android.widget.ImageButton;
 import java.util.List;
 
 import kimkihwan.navercorp.com.top100.databinding.FragmentToprankBinding;
-import kimkihwan.navercorp.com.top100.main.OnDirectionalScrollListener;
-import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
-import kimkihwan.navercorp.com.top100.mvp.presenter.TopRankPresenter;
 import kimkihwan.navercorp.com.top100.main.toprank.adapter.TopRankAdapter;
 import kimkihwan.navercorp.com.top100.main.toprank.filter.Filter;
 import kimkihwan.navercorp.com.top100.main.toprank.filter.FilterSelector;
+import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
+import kimkihwan.navercorp.com.top100.mvp.presenter.TopRankPresenter;
 
 /**
  * Created by NAVER on 2017-06-08.
