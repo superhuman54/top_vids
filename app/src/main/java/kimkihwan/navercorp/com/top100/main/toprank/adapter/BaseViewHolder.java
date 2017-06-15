@@ -1,4 +1,4 @@
-package kimkihwan.navercorp.com.top100.toprank.adapter;
+package kimkihwan.navercorp.com.top100.main.toprank.adapter;
 
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;

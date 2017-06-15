@@ -1,4 +1,4 @@
-package kimkihwan.navercorp.com.top100.toprank.adapter;
+package kimkihwan.navercorp.com.top100.main.toprank.adapter;
 
 import android.databinding.DataBindingUtil;
 import android.view.LayoutInflater;
@@ -52,7 +52,7 @@ public class RankItemViewHolder extends BaseViewHolder<ItemRankBinding, RankItem
         mPlace.setText(String.valueOf(item.getPlace()));
         mHistory.setText(item.getRankStatus());
         ImageFetcher.display(mThumbnail,
-                ImageFetcher.ImageDefinition.FULL,
+                ImageFetcher.ImageSize.FULL,
                 item.getThumbnailUrl());
     }
 

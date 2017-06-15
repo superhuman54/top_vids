@@ -35,4 +35,5 @@ dependencies {
     compile project(path: ':lib:volley')
     compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
     compile 'com.github.bumptech.glide:glide:3.8.0'
+    compile 'com.facebook.stetho:stetho:1.4.1'
 }

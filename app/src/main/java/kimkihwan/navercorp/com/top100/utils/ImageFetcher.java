@@ -21,8 +21,8 @@ public class ImageFetcher {
 
     private final static String IMAGE_PARAMS = "?type=";
 
-    public static void display(ImageView view, ImageDefinition def, String url) {
-        ImageType type = getType(view.getContext().getApplicationContext(), def);
+    public static void display(ImageView view, ImageSize size, String url) {
+        ImageType type = getType(view.getContext().getApplicationContext(), size);
         String urlQuery = buildParams(url, type);
 
         Glide.with(view.getContext())
@@ -32,10 +32,10 @@ public class ImageFetcher {
 
     }
 
-    private static ImageType getType(Context context, ImageDefinition definition) {
+    private static ImageType getType(Context context, ImageSize size) {
         ImageType type = null;
-        if (definition.getType() != null) {
-            type = definition.getType();
+        if (size.getType() != null) {
+            type = size.getType();
         } else {
             Display dis = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 
@@ -47,7 +47,7 @@ public class ImageFetcher {
                 point.y = dis.getHeight();
             }
 
-            type = definition.measure(point);
+            type = size.measure(point);
         }
         return type;
     }
@@ -61,7 +61,7 @@ public class ImageFetcher {
         return sb.toString();
     }
 
-    public enum ImageDefinition {
+    public enum ImageSize {
 
         FULL {
             @Override

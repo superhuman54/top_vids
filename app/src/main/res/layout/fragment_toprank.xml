@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        
+
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
@@ -30,19 +31,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
-            android:background="@drawable/top_rank_filter_selector"
-            android:layout_marginRight="@dimen/top_rank_filter_selector_right_margin"
             android:layout_marginBottom="@dimen/top_rank_filter_selector_bottom_margin"
-            />
+            android:layout_marginRight="@dimen/top_rank_filter_selector_right_margin"
+            android:background="@drawable/top_rank_filter_selector" />
 
-        <kimkihwan.navercorp.com.top100.toprank.adapter.filter.FilterSelector
+        <kimkihwan.navercorp.com.top100.main.toprank.filter.FilterSelector
             android:id="@+id/filter_selector"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="right|bottom"
-            android:visibility="gone"
+            android:layout_marginBottom="@dimen/top_rank_filter_selector_bottom_margin"
             android:layout_marginRight="@dimen/top_rank_filter_selector_right_margin"
-            android:layout_marginBottom="@dimen/top_rank_filter_selector_bottom_margin"/>
+            android:visibility="gone" />
 
     </FrameLayout>
 

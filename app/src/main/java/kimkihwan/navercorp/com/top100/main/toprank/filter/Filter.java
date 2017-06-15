@@ -1,4 +1,4 @@
-package kimkihwan.navercorp.com.top100.toprank.adapter.filter;
+package kimkihwan.navercorp.com.top100.main.toprank.filter;
 
 /**
  * Created by jamie on 2017. 6. 13..

@@ -2,6 +2,8 @@ package kimkihwan.navercorp.com.top100;
 
 import android.app.Application;
 
+import com.facebook.stetho.Stetho;
+
 import kimkihwan.navercorp.com.top100.api.VolleyApiClient;
 import kimkihwan.navercorp.com.top100.utils.FilterLoader;
 
@@ -14,6 +16,8 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Stetho.initializeWithDefaults(this);
 
         VolleyApiClient.getInstance()
                 .init(this);

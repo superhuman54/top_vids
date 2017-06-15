@@ -13,11 +13,12 @@ import android.widget.ImageButton;
 import java.util.List;
 
 import kimkihwan.navercorp.com.top100.databinding.FragmentToprankBinding;
+import kimkihwan.navercorp.com.top100.main.OnDirectionalScrollListener;
 import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 import kimkihwan.navercorp.com.top100.mvp.presenter.TopRankPresenter;
-import kimkihwan.navercorp.com.top100.toprank.adapter.TopRankAdapter;
-import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
-import kimkihwan.navercorp.com.top100.toprank.adapter.filter.FilterSelector;
+import kimkihwan.navercorp.com.top100.main.toprank.adapter.TopRankAdapter;
+import kimkihwan.navercorp.com.top100.main.toprank.filter.Filter;
+import kimkihwan.navercorp.com.top100.main.toprank.filter.FilterSelector;
 
 /**
  * Created by NAVER on 2017-06-08.
@@ -37,7 +38,7 @@ public class TopRankFragment
     private FilterSelector mFilterLayout;
     private ImageButton mFilterButton;
 
-    private RecyclerView mRankList;
+    private RecyclerView mRankTopRecyclerView;
     private TopRankAdapter mAdapter;
 
     public static TopRankFragment getInstance() {
@@ -69,8 +70,22 @@ public class TopRankFragment
         mFilterButton.setOnClickListener(this);
 
         mAdapter = new TopRankAdapter();
-        mRankList = mBinding.recyclerView;
-        mRankList.setAdapter(mAdapter);
+        mRankTopRecyclerView = mBinding.recyclerView;
+        mRankTopRecyclerView.setNestedScrollingEnabled(true);
+//        mRankTopRecyclerView.addOnScrollListener(new OnDirectionalScrollListener() {
+//            @Override
+//            public void onScrolled(RecyclerView view, int direction) {
+//                switch (direction) {
+//                    case OnDirectionalScrollListener.SCROLL_UP:
+//                        mFilterButton.setVisibility(View.INVISIBLE);
+//                        break;
+//                    case OnDirectionalScrollListener.SCROLL_DOWN:
+//                        mFilterButton.setVisibility(View.VISIBLE);
+//                        break;
+//                }
+//            }
+//        });
+        mRankTopRecyclerView.setAdapter(mAdapter);
 
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return mBinding.getRoot();
@@ -103,7 +118,7 @@ public class TopRankFragment
     public void onSelected(Filter filter) {
         getPresenter().fetch(filter);
         toggle();
-        mRankList.scrollToPosition(0);
+        mRankTopRecyclerView.scrollToPosition(0);
     }
 
     @Override

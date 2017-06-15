@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import kimkihwan.navercorp.com.top100.R;
-import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
+import kimkihwan.navercorp.com.top100.main.toprank.filter.Filter;
 
 /**
  * Created by jamie on 2017. 6. 13..

@@ -1,4 +1,4 @@
-package kimkihwan.navercorp.com.top100.toprank.adapter.filter;
+package kimkihwan.navercorp.com.top100.main.toprank.filter;
 
 import android.content.Context;
 import android.util.AttributeSet;

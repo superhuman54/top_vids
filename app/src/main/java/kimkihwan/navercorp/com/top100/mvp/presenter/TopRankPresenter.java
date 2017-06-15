@@ -12,7 +12,7 @@ import kimkihwan.navercorp.com.top100.api.request.GetTopRankRequest;
 import kimkihwan.navercorp.com.top100.api.response.TopRankResponse;
 import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
 import kimkihwan.navercorp.com.top100.mvp.view.Ui;
-import kimkihwan.navercorp.com.top100.toprank.adapter.filter.Filter;
+import kimkihwan.navercorp.com.top100.main.toprank.filter.Filter;
 import kimkihwan.navercorp.com.top100.utils.FilterLoader;
 
 /**
