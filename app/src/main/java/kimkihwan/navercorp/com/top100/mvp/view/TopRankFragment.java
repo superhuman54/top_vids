@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import java.util.List;
 
 import kimkihwan.navercorp.com.top100.databinding.FragmentToprankBinding;
+import kimkihwan.navercorp.com.top100.main.OnDirectionalScrollListener;
 import kimkihwan.navercorp.com.top100.main.toprank.adapter.TopRankAdapter;
 import kimkihwan.navercorp.com.top100.main.toprank.filter.Filter;
 import kimkihwan.navercorp.com.top100.main.toprank.filter.FilterSelector;
@@ -71,19 +73,21 @@ public class TopRankFragment
         mAdapter = new TopRankAdapter();
         mRankTopRecyclerView = mBinding.recyclerView;
         mRankTopRecyclerView.setNestedScrollingEnabled(true);
-//        mRankTopRecyclerView.addOnScrollListener(new OnDirectionalScrollListener() {
-//            @Override
-//            public void onScrolled(RecyclerView view, int direction) {
-//                switch (direction) {
-//                    case OnDirectionalScrollListener.SCROLL_UP:
-//                        mFilterButton.setVisibility(View.INVISIBLE);
-//                        break;
-//                    case OnDirectionalScrollListener.SCROLL_DOWN:
-//                        mFilterButton.setVisibility(View.VISIBLE);
-//                        break;
-//                }
-//            }
-//        });
+        mRankTopRecyclerView.addOnScrollListener(new OnDirectionalScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView view, int direction, int state) {
+                switch (direction) {
+                    case OnDirectionalScrollListener.SCROLL_UP:
+                        mFilterButton.setVisibility(View.INVISIBLE);
+                        break;
+                    case OnDirectionalScrollListener.SCROLL_DOWN:
+                        if (mFilterLayout.getVisibility() != View.VISIBLE) {
+                            mFilterButton.setVisibility(View.VISIBLE);
+                        }
+                        break;
+                }
+            }
+        });
         mRankTopRecyclerView.setAdapter(mAdapter);
 
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
