@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+
 import kimkihwan.navercorp.com.top100.R;
 import kimkihwan.navercorp.com.top100.databinding.ItemRankBinding;
 import kimkihwan.navercorp.com.top100.mvp.model.RankItem;
@@ -47,8 +49,8 @@ public class RankItemViewHolder extends BaseViewHolder<ItemRankBinding, RankItem
         mPlace.setText(item.getRankStatus());
         mRunningTime.setText(item.getPlayTime());
         mChannelTitle.setText(item.getChannelTitle());
-        mHits.setText(item.getPlayCount() + "");
-        mLikes.setText(item.getLikeItCount() + "");
+        mHits.setText(NumberFormat.getIntegerInstance().format(item.getPlayCount()));
+        mLikes.setText(NumberFormat.getIntegerInstance().format(item.getLikeItCount()));
         mPlace.setText(String.valueOf(item.getPlace()));
         mHistory.setText(item.getRankStatus());
         ImageFetcher.display(mThumbnail,

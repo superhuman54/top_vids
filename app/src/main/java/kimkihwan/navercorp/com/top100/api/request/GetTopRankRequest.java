@@ -39,6 +39,7 @@ public class GetTopRankRequest extends JacksonRequest<TopRankResponse>{
      */
     @Override
     protected TopRankResponse parse(JsonNode root) {
+        Log.d(TAG, "parse() -> " + Thread.currentThread().getName());
         TopRankResponse response = null;
 
         long started = System.currentTimeMillis();
