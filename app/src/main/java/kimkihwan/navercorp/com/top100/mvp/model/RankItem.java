@@ -1,10 +1,13 @@
 package kimkihwan.navercorp.com.top100.mvp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by jamie on 2017. 6. 15..
  */
 
-public class RankItem {
+public class RankItem extends Clip implements Parcelable {
 
     public String channelId;
     public String clipTitle;
@@ -15,7 +18,6 @@ public class RankItem {
     public String channelUrl;
     public String playTime;
     public String thumbnailUrl;
-    public long clipNo;
     public String videoId;
     public String channelTitle;
     public boolean multiTrack;
@@ -24,6 +26,41 @@ public class RankItem {
     public String intentUrl;
 
     public int place;
+
+    public RankItem() {
+    }
+
+    protected RankItem(Parcel in) {
+        channelId = in.readString();
+        clipTitle = in.readString();
+        playCount = in.readLong();
+        recommendPoint = in.readLong();
+        likeItCount = in.readLong();
+        channelEmblem = in.readString();
+        channelUrl = in.readString();
+        playTime = in.readString();
+        thumbnailUrl = in.readString();
+        clipNo = in.readLong();
+        videoId = in.readString();
+        channelTitle = in.readString();
+        multiTrack = in.readByte() != 0;
+        rankStatus = in.readString();
+        rankRange = in.readString();
+        intentUrl = in.readString();
+        place = in.readInt();
+    }
+
+    public static final Creator<RankItem> CREATOR = new Creator<RankItem>() {
+        @Override
+        public RankItem createFromParcel(Parcel in) {
+            return new RankItem(in);
+        }
+
+        @Override
+        public RankItem[] newArray(int size) {
+            return new RankItem[size];
+        }
+    };
 
     public RankItem setChannelId(String channelId) {
         this.channelId = channelId;
@@ -62,11 +99,6 @@ public class RankItem {
 
     public RankItem setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
-        return this;
-    }
-
-    public RankItem setClipNo(long clipNo) {
-        this.clipNo = clipNo;
         return this;
     }
 
@@ -137,10 +169,6 @@ public class RankItem {
         return thumbnailUrl;
     }
 
-    public long getClipNo() {
-        return clipNo;
-    }
-
     public String getVideoId() {
         return videoId;
     }
@@ -176,5 +204,31 @@ public class RankItem {
     public RankItem setPlayTime(String playTime) {
         this.playTime = playTime;
         return this;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(channelId);
+        dest.writeString(clipTitle);
+        dest.writeLong(playCount);
+        dest.writeLong(recommendPoint);
+        dest.writeLong(likeItCount);
+        dest.writeString(channelEmblem);
+        dest.writeString(channelUrl);
+        dest.writeString(playTime);
+        dest.writeString(thumbnailUrl);
+        dest.writeLong(clipNo);
+        dest.writeString(videoId);
+        dest.writeString(channelTitle);
+        dest.writeByte((byte) (multiTrack ? 1 : 0));
+        dest.writeString(rankStatus);
+        dest.writeString(rankRange);
+        dest.writeString(intentUrl);
+        dest.writeInt(place);
     }
 }

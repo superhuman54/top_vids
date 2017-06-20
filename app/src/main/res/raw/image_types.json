@@ -1,0 +1,23 @@
+[
+  {
+    "name": "nmp270",
+    "width": 270,
+    "height": 152,
+    "minDisplayWidth": 200,
+    "quality": 90
+  },
+  {
+    "name": "nmp480",
+    "width": 480,
+    "height": 270,
+    "minDisplayWidth": 400,
+    "quality": 90
+  },
+  {
+    "name": "nmp720",
+    "width": 720,
+    "height": 405,
+    "minDisplayWidth": 650,
+    "quality": 90
+  }
+]

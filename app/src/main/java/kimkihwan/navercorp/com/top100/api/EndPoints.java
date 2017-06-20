@@ -12,4 +12,8 @@ public class EndPoints {
         public final static String API = "/api/open/nmp/home/top100";
     }
 
+    public static class ClipEnd {
+        public final static String API = "/api/open/nmp/clipEnd/clipInfo";
+    }
+
 }
