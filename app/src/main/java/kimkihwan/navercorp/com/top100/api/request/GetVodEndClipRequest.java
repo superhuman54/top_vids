@@ -14,16 +14,16 @@ import kimkihwan.navercorp.com.top100.api.util.ResponseHeaderExtractor;
  * Created by jamie on 2017. 6. 20..
  */
 
-public class GetVodEndClip extends JacksonRequest<ClipInfoResponse>{
+public class GetVodEndClipRequest extends JacksonRequest<ClipInfoResponse>{
 
-    private final static String TAG = GetVodEndClip.class.getSimpleName();
+    private final static String TAG = GetVodEndClipRequest.class.getSimpleName();
 
     public final static String URL = EndPoints.BASE_URL + EndPoints.ClipEnd.API;
     public final static String PARAMS_MAP = "?json={\"clipNo\":\"%d\"}";
 
-    public GetVodEndClip(String params,
-                         Response.Listener<ClipInfoResponse> listener,
-                         Response.ErrorListener errorListener) {
+    public GetVodEndClipRequest(String params,
+                                Response.Listener<ClipInfoResponse> listener,
+                                Response.ErrorListener errorListener) {
         super(Method.GET,
                 URL + params,
                 listener,

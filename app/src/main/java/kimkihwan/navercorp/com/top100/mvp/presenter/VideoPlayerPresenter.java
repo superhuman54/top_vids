@@ -6,7 +6,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import kimkihwan.navercorp.com.top100.api.VolleyApiClient;
-import kimkihwan.navercorp.com.top100.api.request.GetVodEndClip;
+import kimkihwan.navercorp.com.top100.api.request.GetVodEndClipRequest;
 import kimkihwan.navercorp.com.top100.api.response.ClipInfoResponse;
 import kimkihwan.navercorp.com.top100.mvp.model.Clip;
 import kimkihwan.navercorp.com.top100.mvp.view.Ui;
@@ -21,7 +21,7 @@ public class VideoPlayerPresenter extends Presenter<VideoPlayerPresenter.VideoPl
 
     public void getVodEndClip(Clip clip) {
         VolleyApiClient.getInstance()
-                .add(new GetVodEndClip(GetVodEndClip.buildParams(clip.getClipNo()),
+                .add(new GetVodEndClipRequest(GetVodEndClipRequest.buildParams(clip.getClipNo()),
                         new Response.Listener<ClipInfoResponse>() {
                             @Override
                             public void onResponse(ClipInfoResponse response) {
