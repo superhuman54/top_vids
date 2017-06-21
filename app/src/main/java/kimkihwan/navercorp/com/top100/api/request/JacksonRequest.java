@@ -24,7 +24,10 @@ public abstract class JacksonRequest<T> extends Request<T> {
 
     private final static String TAG = JacksonRequest.class.getSimpleName();
 
-    public static final ObjectMapper sMapper = new ObjectMapper();
+    private final static String KEY_ENTRY_HEAD = "header";
+    private final static String KEY_ENTRY_BODY = "body";
+
+    protected ObjectMapper mMapper = new ObjectMapper();
     private HeaderExtractor mHeaderExtractor;
 
     private final Response.Listener<T> mListener;
@@ -51,9 +54,17 @@ public abstract class JacksonRequest<T> extends Request<T> {
         JsonNode root = null;
         T responsePayload = null;
         try {
-            root = sMapper.readTree(response.data);
-            mHeaderExtractor.extract(root);
-            responsePayload = parse(root);
+            root = mMapper.readTree(response.data);
+            JsonNode header = root.path(KEY_ENTRY_HEAD);
+            if (header.isMissingNode()) {
+                throw new ApiProtocolException("header must be contained.");
+            }
+            mHeaderExtractor.extract(header);
+            JsonNode body = root.path(KEY_ENTRY_BODY);
+            if (body.isMissingNode()) {
+                throw new ApiProtocolException("body must be contained.");
+            }
+            responsePayload = parse(body);
         } catch (IOException e) {
             return Response.error(new ParseError(e));
         } catch (ApiProtocolException e) {
@@ -63,7 +74,7 @@ public abstract class JacksonRequest<T> extends Request<T> {
                 HttpHeaderParser.parseCacheHeaders(response));
     }
 
-    protected abstract T parse(JsonNode root);
+    protected abstract T parse(JsonNode body);
 
     @Override
     protected void deliverResponse(T response) {

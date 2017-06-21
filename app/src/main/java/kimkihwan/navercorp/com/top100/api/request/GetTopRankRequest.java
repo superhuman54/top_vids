@@ -34,20 +34,20 @@ public class GetTopRankRequest extends JacksonRequest<TopRankResponse>{
 
     /**
      *  응답의 바디(body) 영역을 파싱한다.
-     * @param root 응답 json
+     * @param body 응답 json
      * @return
      */
     @Override
-    protected TopRankResponse parse(JsonNode root) {
+    protected TopRankResponse parse(JsonNode body) {
         Log.d(TAG, "parse() -> " + Thread.currentThread().getName());
         TopRankResponse response = null;
 
         long started = System.currentTimeMillis();
 
-        JsonNode topPlayList = root.path("body").path("top100Playlist");
+        JsonNode topPlayList = body.path("top100Playlist");
 
         try {
-            response = sMapper.treeToValue(topPlayList, TopRankResponse.class);
+            response = mMapper.treeToValue(topPlayList, TopRankResponse.class);
         } catch (JsonProcessingException e) {
             Log.e(TAG, e.getMessage(), e);
         }

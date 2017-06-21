@@ -10,6 +10,6 @@ import kimkihwan.navercorp.com.top100.exception.ApiProtocolException;
 
 public abstract class HeaderExtractor {
 
-    public abstract void extract(JsonNode root) throws ApiProtocolException;
+    public abstract void extract(JsonNode head) throws ApiProtocolException;
 
 }

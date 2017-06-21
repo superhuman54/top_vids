@@ -32,20 +32,20 @@ public class GetVodEndClip extends JacksonRequest<ClipInfoResponse>{
     }
 
     @Override
-    protected ClipInfoResponse parse(JsonNode root) {
+    protected ClipInfoResponse parse(JsonNode body) {
         ClipInfoResponse response = null;
 
-        long startd = System.currentTimeMillis();
+        long started = System.currentTimeMillis();
 
-        JsonNode clipInfo = root.path("body").path("clipInfo");
+        JsonNode clipInfo = body.path("clipInfo");
 
         try {
-            response = sMapper.treeToValue(clipInfo, ClipInfoResponse.class);
+            response = mMapper.treeToValue(clipInfo, ClipInfoResponse.class);
         } catch (JsonProcessingException e) {
             Log.e(TAG, e.getMessage(), e);
         }
 
-        Log.d(TAG, "elapsed time: " + (System.currentTimeMillis() - startd));
+        Log.d(TAG, "elapsed time: " + (System.currentTimeMillis() - started));
         return response;
     }
 
